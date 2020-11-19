@@ -40,8 +40,10 @@ function formatDate(d) {
   ];
   let month = months[d.getMonth()];
   let year = d.getFullYear();
-  let dateElement = document.querySelector("#display-date");
-  dateElement.innerHTML = `${day}, ${month} ${date} ${year}, ${currentHR}:${minutes}`;
+  let dateElement1 = document.querySelector("#display-date");
+  dateElement1.innerHTML = `${day} ${currentHR}:${minutes}`;
+  let dateElement2 = document.querySelector("#display-date2");
+  dateElement2.innerHTML=`${month} ${date}, ${year}`;
 }
 // Show Date
 let now = new Date();
