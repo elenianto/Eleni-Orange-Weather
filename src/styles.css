@@ -14,7 +14,6 @@ body {
   padding: 5px 10px;
   margin: 30px 50px;
   border-radius: 10px;
-  border-color: coral;
   max-width: 600px;
   max-height: 600px;
 }
@@ -23,7 +22,7 @@ h1 {
   color: #455a64;
   font-size: 24px;
   font-weight: 500;
-  margin: 20px;
+  margin: 10px 20px;
 }
 h2 {
   color: #364f6b;
@@ -84,7 +83,16 @@ img {
   margin: 25px 0px 0px 20px;
   width: 110%;
   background-color:  #b3e5fc;
+  background-clip: padding-box;
+  border: 1px solid #0288d1;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
+#city-date-info{
+  background: #B3E5FC;
+  margin: 20px 3px 10px 25px;
+  border-radius: 10px;
+  width:120%;
 }
 
 #credit-footer {
