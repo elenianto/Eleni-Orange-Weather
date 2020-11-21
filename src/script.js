@@ -1,23 +1,17 @@
-function formatDate(d) {
-  let date = d.getDate();
-  if (date < 10) {
-    date = `0${date}`;
+let apiKey = "e65f46834bdf8f5b4de9663c2d926f51";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=${apiKey}&units=metric`;
+
+function formatDate(date) {
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
   }
-  let currentHR = d.getHours();
-  let amOrPm="AM";
-  if (currentHR>12) {
-    currentHR=currentHR-12;
-    amOrPm="PM";
-  }
-  if (currentHR < 10) {
-    currentHR = `0${currentHR}`;
-  }
-  
-  let minutes = d.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let dayIndex = d.getDay();
+
+  let dayIndex = date.getDay();
   let days = [
     "Sunday",
     "Monday",
@@ -29,65 +23,33 @@ function formatDate(d) {
   ];
   let day = days[dayIndex];
 
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
-  let dateElement1 = document.querySelector("#display-date");
-  dateElement1.innerHTML = `${day} ${currentHR}:${minutes}${amOrPm} `` ;
-  let dateElement2 = document.querySelector("#display-date2");
-  dateElement2.innerHTML=`${month} ${date}, ${year}`;
+  return `${day} ${hours}:${minutes}`;
 }
 // Show Date
-let now = new Date();
-formatDate(now);
+let dateElement = document.querySelector(`#date`);
+let currentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
 
-function displayWeather(response) {
-  let cityShown = document.querySelector("#city");
-  cityShown.innerHTML = response.data.name;
-  let temperature = document.querySelector("#temperature-shown");
-  temperature.innerHTML = Math.round(response.data.main.temp);
-  let weatherDescription = document.querySelector("#weather-description");
-  weatherDescription.innerHTML = response.data.weather[0].main;
+function showTemperature(response) {
+  console.log(response.data);
+  let thermokrasia = Math.round(response.data.main.temp);
+  let tempElement = document.querySelector("h1");
+  tempElement.innerHTML = `It is ${thermokrasia} degrees in Sydney`;
 }
+axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 
-function searchCity(city) {
-  let apiKey = "e65f46834bdf8f5b4de9663c2d926f51";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeather);
-}
-function handleSubmit(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-input").value;
-  searchCity(city);
+function showWeather(response) {
+  let h1 = document.querySelector("h1");
+  let temperature = Math.round(response.data.main.temp);
+  h1.innerHTML = `It is currently ${temperature}° in ${response.data.name}`;
 }
 
 function retrievePosition(position) {
   let apiKey = "e65f46834bdf8f5b4de9663c2d926f51";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(displayWeather);
-}
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(retrievePosition);
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(url).then(showWeather);
 }
 
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
+navigator.geolocation.getCurrentPosition(retrievePosition);
