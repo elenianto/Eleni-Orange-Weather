@@ -3,11 +3,16 @@ function formatDate(d) {
   if (date < 10) {
     date = `0${date}`;
   }
-  let currentMin = d.getMinutes();
   let currentHR = d.getHours();
+  let amOrPm="AM";
+  if (currentHR>12) {
+    currentHR=currentHR-12;
+    amOrPm="PM";
+  }
   if (currentHR < 10) {
     currentHR = `0${currentHR}`;
   }
+  
   let minutes = d.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -41,7 +46,7 @@ function formatDate(d) {
   let month = months[d.getMonth()];
   let year = d.getFullYear();
   let dateElement1 = document.querySelector("#display-date");
-  dateElement1.innerHTML = `${day} ${currentHR}:${minutes}`;
+  dateElement1.innerHTML = `${day} ${currentHR}:${minutes}${amOrPm} `` ;
   let dateElement2 = document.querySelector("#display-date2");
   dateElement2.innerHTML=`${month} ${date}, ${year}`;
 }
