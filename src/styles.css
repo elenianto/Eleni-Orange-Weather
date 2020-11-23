@@ -1,8 +1,18 @@
 body {
-  margin: 15px 10 px;
+  display: block;
+  margin: 0px auto;
   background-color: white;
   border-color: rgba(255, 193, 7, 0.1);
   border-width: 1px;
+}
+.active {
+  cursor: default;
+}
+
+.active:hover {
+  color: black;
+  cursor: default;
+  text-decoration: bold;
 }
 
 h1 {
@@ -22,6 +32,7 @@ h3 {
   vertical-align: top;
   font-size: 50px;
   line-height: 65px;
+  padding: 0px 25px;
 }
 h4 {
   text-align: right;
@@ -34,7 +45,7 @@ small {
 }
 .form-control {
   display: block;
-  width: 300px;
+  width: 296px;
   margin: 25px 0px 0px 20px;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
@@ -45,7 +56,7 @@ small {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #0288d1;
-  border-radius: 0.25rem;
+  border-radius: 7px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 hr {
@@ -53,24 +64,36 @@ hr {
   padding: 0px;
 }
 img {
-  padding: 10px;
-  display: inline-block;
+  padding: 5px 10px;
+  display: inline;
 }
+
 .btn-primary {
   background-color: #b3e5fc;
   border-color: #0288d1;
   color: #0288d1;
   width: 100%;
 }
+
+.col-6 {
+  padding: 5px 0px 15px 15px;
+  margin: 20px 0;
+}
+.col {
+  padding: 5px 5px 15px 5px;
+  margin: 5px 0;
+  width: 50px;
+}
+
 #app {
-  margin: 25px 20px;
+  margin: 25px 30px 10px 30px;
   border-color: rgba(255, 193, 7, 0.1);
 }
 #frame {
   font-family: sans-serif;
   background: rgba(255, 193, 7, 0.2);
   padding: 5px 10px;
-  margin: 30px 50px;
+  margin: 20px auto;
   border-radius: 10px;
   max-width: 600px;
   max-height: 600px;
@@ -88,12 +111,36 @@ img {
 }
 
 #city-date-info {
-  background: #dcdcdc;
-  margin: 20px 0px 5px 25px;
-  padding: 0px 0px;
+  background: white;
+  width: 50px;
+  margin: 20px 5px 10px 25px;
   border-radius: 10px;
-  width: 300px;
   box-shadow: 0px 0px 2px #888888;
+}
+#weather-general {
+  background: white;
+  width: 215px;
+  margin: 20px 5px 10px 25px;
+  padding: 15px 10px 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px #888888;
+}
+
+.weather-row {
+  background: white;
+  margin: 0 25px;
+  border: 0px 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px #888888;
+  text-align: center;
+}
+#forecast-row {
+  padding: 10px;
+  width: 100%;
+  margin: 25px 0px 25px 0px;
+}
+#weather-description {
+  margin: 0 5px 0 auto;
 }
 
 #credit-footer {
@@ -103,4 +150,22 @@ img {
   text-align: center;
   font-size: 15px;
   line-height: 20px;
+}
+.btn {
+  border-radius: 5px;
+}
+.container {
+  padding: 0 0;
+  max-height: 200px;
+}
+
+#fahrenheit-link {
+  color: black;
+}
+#celsius-link {
+  color: black;
+}
+small {
+  font-size: 14px;
+  vertical-align: top;
 }
