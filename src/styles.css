@@ -53,9 +53,9 @@ small {
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   background-clip: padding-box;
-  border: 1px solid #0288d1;
+  border: 1px solid #888888;
   border-radius: 7px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -65,14 +65,17 @@ hr {
 }
 img {
   padding: 5px 10px;
-  display: inline;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .btn-primary {
-  background-color: #b3e5fc;
-  border-color: #0288d1;
-  color: #0288d1;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: #888888;
   width: 100%;
+  color: #495057;
+  box-shadow: 0px 0px 2px #888888;
 }
 
 .col-6 {
@@ -88,10 +91,13 @@ img {
 #app {
   margin: 25px 30px 10px 30px;
   border-color: rgba(255, 193, 7, 0.1);
+  height: 500px;
 }
 #frame {
   font-family: sans-serif;
-  background: rgba(255, 193, 7, 0.2);
+  background-color: rgba(255, 193, 7, 0.2);
+  background-image: url("img/grungy-back-upside2.png");
+  background-size: cover;
   padding: 5px 10px;
   margin: 20px auto;
   border-radius: 10px;
@@ -106,19 +112,20 @@ img {
   margin: 25px 0px 0px 20px;
   width: 100px;
   background-clip: padding-box;
-  border: 1px solid #0288d1;
+  border: 1px solid #888888;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 #city-date-info {
-  background: white;
+  background: rgba(255, 255, 255, 0.6);
   width: 50px;
   margin: 20px 5px 10px 25px;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #888888;
 }
 #weather-general {
-  background: white;
+  background: rgba(255, 255, 255, 0.6);
+  text-align: center;
   width: 215px;
   margin: 20px 5px 10px 25px;
   padding: 15px 10px 15px 20px;
@@ -127,7 +134,7 @@ img {
 }
 
 .weather-row {
-  background: white;
+  background: rgba(255, 255, 255, 0.6);
   margin: 0 25px;
   border: 0px 5px;
   border-radius: 10px;
@@ -137,7 +144,7 @@ img {
 #forecast-row {
   padding: 10px;
   width: 100%;
-  margin: 25px 0px 25px 0px;
+  margin: 25px 0px 10px 0px;
 }
 #weather-description {
   margin: 0 5px 0 auto;
@@ -153,6 +160,7 @@ img {
 }
 .btn {
   border-radius: 5px;
+  border-color: #888888;
 }
 .container {
   padding: 0 0;
