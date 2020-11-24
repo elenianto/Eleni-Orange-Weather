@@ -17,7 +17,7 @@ function formatDate(d) {
     minutes = `0${minutes}`;
   }
   let dayIndex = d.getDay();
-  let days = [
+  let daysFull = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -26,7 +26,16 @@ function formatDate(d) {
     "Friday",
     "Saturday"
   ];
-  let day = days[dayIndex];
+  let daysShort= [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ];
+  let dayLong = daysFull[dayIndex];
   let months = [
     "January",
     "February",
@@ -44,10 +53,12 @@ function formatDate(d) {
   let month = months[d.getMonth()];
   let year = d.getFullYear();
   let dateElement1 = document.querySelector("#display-date"); 
-  dateElement1.innerHTML = `${day}, ${currentHR}:${minutes}${ProiVrady}`;
+  dateElement1.innerHTML = `${dayLong}, ${currentHR}:${minutes}${ProiVrady}`;
   let dateElement2=document.querySelector("#display-date2");
-  dateElement2.innerHTML=${date} ${month} ${year}``
-;}
+  dateElement2.innerHTML=`${date} ${month} ${year}`;
+  let dayOne =document.querySelector("#day1");
+  dayOne.innerHTML= daysShort[dayIndex+1];
+}
 
 let now = new Date();
 formatDate(now);
