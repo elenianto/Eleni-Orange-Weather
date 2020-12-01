@@ -7,12 +7,22 @@ body {
 }
 .active {
   cursor: default;
+  color: black;
+  text-decoration: none;
 }
 
-.active:hover {
+a {
+  color: rgb(237, 128, 0);
+}
+.active.temp-conv {
+  font-weight: bold;
+  color: black;
+}
+.temp-conv.active:hover {
   color: black;
   cursor: default;
-  text-decoration: bold;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 h1 {
@@ -27,13 +37,14 @@ h2 {
   margin: 10px 20px;
 }
 h3 {
-  display: inline;
+  display: inline-block;
   text-align: center;
   vertical-align: top;
-  font-size: 50px;
+  font-size: 45px;
   line-height: 65px;
-  padding: 0px 25px;
+  padding: 0px 35px;
 }
+
 h4 {
   text-align: right;
   font-size: 16px;
@@ -96,7 +107,7 @@ img {
 #frame {
   font-family: sans-serif;
   background-color: rgba(255, 193, 7, 0.2);
-  background-image: url("img/grungy-back-upside2.png");
+  background-image: url("https://i.ibb.co/G5GmvvP/grungy-back-upside2.jpg");
   background-size: cover;
   padding: 5px 10px;
   margin: 20px auto;
@@ -107,6 +118,9 @@ img {
 #submit-location-button {
   margin: 25px 0px 0px 0px;
   width: 100px;
+  background-clip: padding-box;
+  border: 1px solid #888888;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 #current-location-button {
   margin: 25px 0px 0px 20px;
@@ -117,14 +131,14 @@ img {
 }
 
 #city-date-info {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(128, 128, 128, 0.3);
   width: 50px;
   margin: 20px 5px 10px 25px;
   border-radius: 10px;
   box-shadow: 0px 0px 2px #888888;
 }
 #weather-general {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(128, 128, 128, 0.3);
   text-align: center;
   width: 215px;
   margin: 20px 5px 10px 25px;
@@ -134,7 +148,7 @@ img {
 }
 
 .weather-row {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(128, 128, 128, 0.3);
   margin: 0 25px;
   border: 0px 5px;
   border-radius: 10px;
@@ -160,13 +174,23 @@ img {
 }
 .btn {
   border-radius: 5px;
-  border-color: #888888;
+  border-color: rgba(136, 136, 136, 0.3);
+}
+.btn:hover {
+  background-color: #888888;
+}
+
+.btn:focus {
+  background-color: #888888;
 }
 .container {
   padding: 0 0;
   max-height: 200px;
 }
 
+#temp-group {
+  text-align: center;
+}
 #fahrenheit-link {
   color: black;
 }
@@ -176,4 +200,8 @@ img {
 small {
   font-size: 14px;
   vertical-align: top;
+}
+
+#icon {
+  padding: 10px auto;
 }

@@ -1,112 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>WindowView</title>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="src/styles.css" />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
 
-  <body>
-    <div id="app">
-      <div id="frame">
-        <form id="search-form">
-          <div class="form-row">
-            <div class="col-7">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search Location"
-                id="city-input"
-              />
-            </div>
-            <div class="col-2">
-              <input
-              class="btn btn-primary"
-              type="submit"
-              value="Submit"
-              id="submit-location-button"
-            />
-            </div>
-            <div class="col-2">
-              <input
-              class="btn btn-primary"
-              type="submit"
-              value="Current"
-              id="current-location-button"
-            />
-            </div>
+<head>
+  <title>WindowView</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div id="frame">
+      <form id="search-form">
+        <div class="form-row">
+          <div class="col-7">
+            <input type="text" class="form-control" placeholder="Search Location" id="city-input" />
           </div>
-        </form>
-        <div class="container">
+          <div class="col-2">
+            <input class="btn btn-primary" type="submit" value="Submit" id="submit-location-button" />
+          </div>
+          <div class="col-2">
+            <input class="btn btn-primary" type="submit" value="Current" id="current-location-button" />
+          </div>
+        </div>
+      </form>
+      <div class="container">
         <div class="form-row" id="row1">
-        <div class="col-6" id="city-date-info">
+          <div class="col-6" id="city-date-info">
             <h1 id="city">Athens</h1>
-            <h2><span id="display-date">Monday -  13:00</span></br>
-            <span id="weather-description">Sunny </span> </br>
-            </br>
-             Precipitation: <span  id="display-prec"> 60%
-            </span></br>Humidity:  <span id="display-hum"> 
+            <h2>Updated on: <span id="display-date">Monday - 13:00</span></br>
+              <span id="weather-description">Sunny </span> </br>
+              </br>
+              Feels Like: <span id="display-feels"> 8.9 °C
+              </span></br>Humidity: <span id="display-hum"> 60%
               </span>
-            </br>Wind:<span id="display-wind"> 7.2mph
-            </span></h2>
+              </br>Wind: <span id="display-wind"> 7.2 m/s
+              </span></h2>
           </div>
           <div class="col-auto" id="weather-general">
-            <img src="src/img/sunny.png" alt="sunny" width="100px" />
-            <div class="form-row">
+            <img src="src/img/sunny.png" alt="sunny" width="105px" id="icon" />
+            <div class="form-row" id="temp-group">
               <h3> <span id="temperature-shown"> 33 </span>
-                <small> <a href="#" id="celsius-link" class="active">°C </a>| <a href="#" id="fahrenheit-link">°F </a></small>
+                <small> <a href="#" id="Metric" class="active temp-conv">°C </a>| <a href="#" id="Imperial"
+                    class="temp-conv">°F </a></small>
               </h3>
             </div>
           </div>
         </div>
-        </div>
-        <div class="container" id="forecast-row">
-          <div class="row" id="row2">
-            <div class="col weather-row"  id="weather-forecast1">
-              <span id="day1">Tue</span>
-              <img class="forecast-icon" src="src/img/sunny.png" width=50px>
-            </div> 
-            <div class="col weather-row" id="weather-forecast2">
-              <span id="day2">Wed</span>
-              <img class="forecast-icon" src="src/img/sunny.png" width=50px>
-            </div>
-            <div class="col weather-row" id="weather-forecast3">
-              <span id="day3">Thu</span>
-               <img class="forecast-icon" src="src/img/sunny.png" width=50px>
-            </div>
-            <div class="col weather-row" id="weather-forecast4">
+      </div>
+      <div class="container" id="forecast-row">
+        <div class="row" id="row2">
+          <div class="col weather-row" id="weather-forecast1">
+            <span id="day1">Tue</span>
+            <img class="forecast-icon" src="http://openweathermap.org/img/wn/01d@2x.png" width=62px id="icond1">
+          </div>
+          <div class="col weather-row" id="weather-forecast2">
+            <span id="day2">Wed</span>
+            <img class="forecast-icon" src="http://openweathermap.org/img/wn/01d@2x.png" width=62px id="icond2">
+          </div>
+          <div class="col weather-row" id="weather-forecast3">
+            <span id="day3">Thu</span>
+            <img class="forecast-icon" src="http://openweathermap.org/img/wn/01d@2x.png" width=62px id="icond3">
+          </div>
+          <div class="col weather-row" id="weather-forecast4">
             <span id="day4">Fri</span>
-            <img class="forecast-icon" src="src/img/sunny.png" width=50px>
-            </div>
-            <div class="col weather-row" id="weather-forecast5">
+            <img class="forecast-icon" src="http://openweathermap.org/img/wn/01d@2x.png" width=62px id="icond4">
+          </div>
+          <div class="col weather-row" id="weather-forecast5">
             <span id="day5">Sat</span>
-            <img class="forecast-icon" src="src/img/sunny.png" width=50px>
-            </div>
-          </div>
-          </div>
-          </div>
-        
-        <div class="footer">
-          <a href="https://github.com/elenianto/Weather-App-Draft-1/tree/master" title="Github" target="blank"> Open-source code</a> 
-          by <a href="https://www.linkedin.com/in/eleniantonelli/" title="LinkedIn" target="blank">Eleni Antonelli </a> 
-          <br />
-          <div id="credit-footer">
-            Icons made by
-            <a href="http://www.freepik.com/" title="Freepik" target="blank">Freepik</a> from
-            <a href="https://www.flaticon.com/" title="Flaticon" target="blank"
-              >www.flaticon.com</a
-            >
+            <img class="forecast-icon" src="http://openweathermap.org/img/wn/01d@2x.png" width=62px id="icond5">
           </div>
         </div>
       </div>
     </div>
-  </body>
-  <script src="src/script.js"></script>
+    <div class="footer">
+      <a href="https://github.com/elenianto/Weather-App-Draft-1/tree/master" title="Github" target="blank"> Open-source
+        code</a>
+      by <a href="https://www.linkedin.com/in/eleniantonelli/" title="LinkedIn" target="blank">Eleni Antonelli </a>
+
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+<script src="src/script.js"></script>
+
 </html>
