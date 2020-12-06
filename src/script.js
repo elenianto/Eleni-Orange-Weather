@@ -234,7 +234,9 @@ function retrievePosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let ForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(url).then(displayWeather);
+  axios.get(ForecastUrl).then(displayForecast);
 }
 function getCurrentLocation(event) {
   event.preventDefault();
